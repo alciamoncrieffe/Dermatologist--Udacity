@@ -1,6 +1,6 @@
 ## Mini Project: Dermatologist AI -- Udacity Project
 
-In this mini project, you will design an algorithm that can visually diagnose melanoma, the deadliest form of skin cancer. In particular, your algorithm will distinguish this malignant skin tumor from two types of benign lesions (nevi and seborrheic keratoses).
+In this mini project, I have designed an algorithm to visually diagnose melanoma, the deadliest form of skin cancer. In particular, to distinguish this malignant skin tumor from two types of benign lesions (nevi and seborrheic keratoses).
 
 #### Getting Started
 
@@ -19,7 +19,8 @@ mkdir train; mkdir valid; mkdir test
 
 Place the training, validation, and test images in the data/ folder, at data/train/, data/valid/, and data/test/, respectively. Each folder should contain three sub-folders (melanoma/, nevus/, seborrheic_keratosis/), each containing representative images from one of the three image classes.
 
-You are free to use any coding environment of your choice to solve this mini project! In order to rank your results, you need only use a pipeline that culminates in a CSV file containing your test predictions.
+You are free to use any coding environment of your choice to solve this mini project! 
+Going forward I would rank the results, using a pipeline that culminates in a CSV file containing the test predictions.
 
 #### Create a Model
 Use the training and validation data to train a model that can distinguish between the three different image classes. (After training, you will use the test images to gauge the performance of your model.)
@@ -32,3 +33,21 @@ Menegola A, Tavares J, Fornaciali M, Li LT, Avila S, Valle E. “RECOD Titans at
 While the original challenge provided additional data (such as the gender and age of the patients), we only provide the image data to you. If you would like to download this additional patient data, you may do so at the competition website.
 
 All three of the above teams increased the number of images in the training set with additional data sources. If you'd like to expand your training set, you are encouraged to begin with the ISIC Archive.
+
+#### Data Loaders
+Initial training data transformations include a RandomHorizontalFlip and RandomRotation(30), since there is no constant orientation of a melanoma.
+
+                            transforms.RandomRotation(30),
+                            transforms.RandomHorizontalFlip(),
+                            transforms.Resize(224),
+                            transforms.CenterCrop(224),
+                            transforms.ToTensor(),
+                            transforms.Normalize((0.485, 0.456, 0.406), 
+                                                 (0.229, 0.224, 0.225)
+
+#### Latest Model Architecture
+As a starting point, we will be finetuning the existing VGG16 model. Freezing the existing weights, loading the VGG16 model and then replacing the final layer with a new one of 3 classes for our 3 images types.
+
+Just using a funetuned model has produced a 70% test accuracy. 
+
+#### Next steps would be to replace or retain the other Linear layers and see if we can improve the accuracy
