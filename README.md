@@ -1,6 +1,6 @@
 ## Mini Project: Dermatologist AI -- Udacity Project
 
-In this mini project, I have designed an algorithm to visually diagnose melanoma, the deadliest form of skin cancer. In particular, to distinguish this malignant skin tumor from two types of benign lesions (nevi and seborrheic keratoses).
+Deep learning Course Project 2b : Design an algorithm to visually diagnose melanoma, the deadliest form of skin cancer, using CNNs. In particular, to distinguish this malignant skin tumor from two types of benign lesions (nevi and seborrheic keratoses). 
 
 #### Getting Started
 
