@@ -1,6 +1,6 @@
 ## Mini Project: Dermatologist AI -- Udacity Project
 
-Deep learning Course Project 2b : Design an algorithm to visually diagnose melanoma, the deadliest form of skin cancer, using CNNs. In particular, to distinguish this malignant skin tumor from two types of benign lesions (nevi and seborrheic keratoses). 
+Deep learning Course Project 2b : As part of a Udacity competition, I designed an algorithm to visually diagnose melanoma, the deadliest form of skin cancer, using CNNs. In particular, to distinguish this malignant skin tumor from two types of benign lesions (nevi and seborrheic keratoses). 
 
 #### Getting Started
 
@@ -23,7 +23,7 @@ You are free to use any coding environment of your choice to solve this mini pro
 Going forward I would rank the results, using a pipeline that culminates in a CSV file containing the test predictions.
 
 #### Create a Model
-Use the training and validation data to train a model that can distinguish between the three different image classes. (After training, you will use the test images to gauge the performance of your model.)
+The training and validation data will be used to train a model that can distinguish between the three different image classes. (After training, the test images can be used to gauge the performance of your model.)
 
 If you would like to read more about some of the algorithms that were successful in this competition, please read this article that discusses some of the best approaches. A few of the corresponding research papers appear below.
 
@@ -35,7 +35,7 @@ While the original challenge provided additional data (such as the gender and ag
 All three of the above teams increased the number of images in the training set with additional data sources. If you'd like to expand your training set, you are encouraged to begin with the ISIC Archive.
 
 #### Data Loaders
-Initial training data transformations include a RandomHorizontalFlip and RandomRotation(30), since there is no constant orientation of a melanoma.
+I used the below training data transformations, including a RandomHorizontalFlip and RandomRotation(30), since there is no constant orientation of a melanoma.
 
                             transforms.RandomRotation(30),
                             transforms.RandomHorizontalFlip(),
@@ -46,8 +46,8 @@ Initial training data transformations include a RandomHorizontalFlip and RandomR
                                                  (0.229, 0.224, 0.225)
 
 #### Latest Model Architecture
-As a starting point, we will be finetuning the existing VGG16 model. Freezing the existing weights, loading the VGG16 model and then replacing the final layer with a new one of 3 classes for our 3 images types.
+As a starting point, I finetuned the existing VGG16 model. Freezing the existing weights, loading the VGG16 model and then replacing the final layer with a new one of 3 classes for our 3 images types.
 
-Just using a funetuned model has produced a 70% test accuracy. 
+Just using a funetuned model I achieved a 70% test accuracy. 
 
 #### Next steps would be to replace or retain the other Linear layers and see if we can improve the accuracy
